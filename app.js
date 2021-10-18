@@ -91,7 +91,7 @@ const handleAppMention = (body, callback) => {
             error?.message ||
             'There was a problem getting car info. Try again later.',
         })
-        .then((response) => {
+        .then(() => {
           callback(null);
         });
     }
