@@ -2,8 +2,8 @@ const crypto = require('crypto');
 
 exports.validateSlackRequest = (event, signingSecret) => {
   const requestBody = event['body'];
-  const headers = headersToLowercase(event.headers);
-  const timestamp = headers['x-slack-signature'];
+  const headers = headersToLowerCase(event.headers);
+  const timestamp = headers['x-slack-request-timestamp'];
   const slackSignature = headers['x-slack-signature'];
   const baseString = `v0:${timestamp}:${requestBody}`;
 
@@ -17,7 +17,7 @@ exports.validateSlackRequest = (event, signingSecret) => {
   return isValid;
 };
 
-const headersToLowercase = (headers) => {
+const headersToLowerCase = (headers) => {
   let lowerCaseHeaders = {};
 
   for (const key in headers) {

@@ -67,7 +67,7 @@ const handleAppMention = (body, callback) => {
           channel,
           text: vehicle,
         });
-        callback(null);
+        return callback(null);
       } else {
         // If user does not send VIN, bot sends message explaining how to use its functionality.
         await slackClient.chat.postMessage({
@@ -79,18 +79,21 @@ const handleAppMention = (body, callback) => {
             "Response type is optional, default is 'string'.\n" +
             'Example: `VIN:JH4DB1650MS013392:string`.',
         });
-        callback(null);
+        return callback(null);
       }
     } catch (error) {
       // Log error for debugging purposes. Maybe we could use a logger.
       console.error(error);
-      await slackClient.chat.postMessage({
-        channel,
-        text:
-          error?.message ||
-          'There was a problem getting car info. Try again later.',
-      });
-      callback('Failed to process booster_bot app_mention');
+      slackClient.chat
+        .postMessage({
+          channel,
+          text:
+            error?.message ||
+            'There was a problem getting car info. Try again later.',
+        })
+        .then((response) => {
+          callback(null);
+        });
     }
   })();
 };
