@@ -1,0 +1,22 @@
+{
+  "name": "booster_slack_bot",
+  "version": "1.0.0",
+  "description": "Slack Bot for Booster Engineer Exercise",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrTrukiny/booster_slack_bot.git"
+  },
+  "keywords": [
+    "slackbot"
+  ],
+  "author": "MrTrukiny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrTrukiny/booster_slack_bot/issues"
+  },
+  "homepage": "https://github.com/MrTrukiny/booster_slack_bot#readme"
+}
