@@ -1,7 +1,9 @@
 FROM public.ecr.aws/lambda/nodejs:14
 
-COPY *.js package*.json  /var/task/
+COPY package*.json /var/task/
 
-RUN npm install
+RUN npm ci --production
+
+COPY . /var/task/
 
 CMD [ "app.boosterBot" ]

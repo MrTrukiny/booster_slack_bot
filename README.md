@@ -3,7 +3,7 @@
 ## Booster Software Engineer - Exercise
 
 Welcome to **Booster Slack Bot**.
-This is an App that receives messages from a Slack bot named 'booster*bot_v1'. \_Booster Bot* is waiting for you to say "Hi!", or give him a VIN number and he will search into NHTSA API for vehicle's data if any. Don't forget to send a valid VIN number ^\_^.
+This is an App that receives messages from a Slack bot named 'booster*bot_v1'. *Booster Bot* is waiting for you to say "Hi!", or give him a VIN number and he will search into NHTSA API for vehicle's data if any. Don't forget to send a valid VIN number ^\_^.
 
 ## How can I see it in action?
 
@@ -14,4 +14,18 @@ This is an App that receives messages from a Slack bot named 'booster*bot_v1'. \
 
 ## How it works?
 
-- There is a Docker image allocated in Amazon Elastic Container Registry running the app and listening for Slack events comming from **@booster_bot_v1** sent throw **#booster** channel.
+There is a Docker image allocated in Amazon Elastic Container Registry that contains a function triggered by AWS Lambda throw API Gateway. The function is listening for Slack events comming from **@booster_bot_v1** that were sent throw **#booster** channel.
+
+### Technologies and services used
+
+- Node.js 14 LTS
+- Docker -> public.ecr.aws/lambda/nodejs:14
+- AWS ECR
+- AWS Lambda
+- AWS API GATEWAY
+- Libraries
+  - crypto
+  - @slack/web-api
+  - axios
+
+Enjoy it!!
